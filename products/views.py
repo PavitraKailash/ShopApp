@@ -170,6 +170,7 @@ class AddToCartView(viewsets.ModelViewSet):
             instance = CartItem.objects.get(product=pdt_id)
             instance.quantity = 0
             instance.save()
+
             serial = CartItemSerializer(instance)
             return Response(serial.data, status=status.HTTP_200_OK)
         else:
